@@ -1,0 +1,15 @@
+apply plugin: 'spring-boot'
+
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.boot:spring-boot-starter-parent:1.4.0.RELEASE'
+    }
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web"
+}
+
+
+
