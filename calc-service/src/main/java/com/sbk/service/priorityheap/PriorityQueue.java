@@ -1,4 +1,4 @@
 package com.sbk.service.priorityheap;
 
-public interface PriorityHeap {
+public interface PriorityQueue {
 }
