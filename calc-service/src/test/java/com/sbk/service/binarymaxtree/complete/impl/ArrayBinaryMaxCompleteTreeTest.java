@@ -10,6 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.*;
 
@@ -86,8 +90,29 @@ public class ArrayBinaryMaxCompleteTreeTest {
         Element<Integer, Integer> max = tree.extractMax();
         assertThat(max.getKey(), equalTo(6));
         assertThat(tree.getKeys(), equalTo(Lists.newArrayList(5, 4, 2, 1, 3)));
-
     }
+
+    @Test
+    public void sort() throws Exception {
+        tree.insert(1, 1);
+        tree.insert(2, 2);
+        tree.insert(3, 3);
+        tree.insert(4, 4);
+        tree.insert(5, 5);
+        tree.insert(6, 6);
+        assertThat(tree.getKeys(), equalTo(Lists.newArrayList(6, 4, 5, 1, 3, 2)));
+        List<Element<Integer, Integer>> sorted = new ArrayList<>();
+        sorted.add(sorted.size(), tree.extractMax());
+        sorted.add(sorted.size(), tree.extractMax());
+        sorted.add(sorted.size(), tree.extractMax());
+        sorted.add(sorted.size(), tree.extractMax());
+        sorted.add(sorted.size(), tree.extractMax());
+        sorted.add(sorted.size(), tree.extractMax());
+
+        assertThat(sorted.stream().map(Element::getKey).collect(Collectors.toList()),
+                equalTo(Lists.newArrayList(6,5,4,3,2,1)));
+    }
+
 
     @Test
     public void siftUp() throws Exception {

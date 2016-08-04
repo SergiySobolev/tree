@@ -11,17 +11,17 @@ public class PriorityQueueIml<K extends Comparable<K>, V extends Comparable<V>>
 
     private final BinaryMaxCompleteTree<K, V> service;
 
-    public PriorityQueueIml(BinaryMaxCompleteTree service) {
+    public PriorityQueueIml(BinaryMaxCompleteTree<K, V> service) {
         this.service = service;
     }
 
     @Override
     public Element<K, V> extractMax() {
-        return null;
+        return service.extractMax();
     }
 
     @Override
     public void insert(Element<K, V> newElement) {
-
+        service.insert(newElement.getKey(), newElement.getValue());
     }
 }
