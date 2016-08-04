@@ -2,7 +2,12 @@ package com.sbk.service.binarymaxtree.complete;
 
 import com.sbk.service.binarymaxtree.BinaryMaxTree;
 
-public interface BinaryMaxCompleteTree<K, V> extends BinaryMaxTree<K, V> {
-    void siftUp(K key);
-    void siftDown(K key);
+import java.util.List;
+
+public interface BinaryMaxCompleteTree<K extends Comparable<K>, V extends Comparable<V>>
+        extends BinaryMaxTree<K, V> {
+    void siftUp(int key);
+    void siftDown(int key);
+    void print();
+    List<K> getKeys();
 }

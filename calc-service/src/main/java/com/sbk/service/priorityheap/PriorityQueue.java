@@ -1,4 +1,8 @@
 package com.sbk.service.priorityheap;
 
-public interface PriorityQueue {
+import com.sbk.model.Element;
+
+public interface PriorityQueue<K extends Comparable<K>, V extends Comparable<V>> {
+    Element<K,V> extractMax();
+    void insert(Element<K,V> newElement);
 }
